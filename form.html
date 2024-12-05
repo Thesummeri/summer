@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Validation with HTML & JavaScript</title>
+<script type="text/javascript">
+function Validation(event) {
+    event.preventDefault(); // Prevent the form from submitting
+
+    var regEmail = /^[a-zA-Z0-9\.\-_]+@[a-zA-Z]+\.[a-zA-Z]{2,3}(\.[a-zA-Z]{2,3})?$/;
+    var regPhone = /^[1-9]{1}\d{9}$/; 
+    var email = document.RegForm.Email.value;
+    var phone = document.RegForm.Telephone.value;
+    var myArray = [];
+
+    for (var i = 0; i < document.RegForm.elements.length; i++) {
+        if (document.RegForm.elements[i].value.length == 0 && document.RegForm.elements[i].type != "radio" && document.RegForm.elements[i].type != "checkbox") {
+            myArray.push(document.RegForm.elements[i].name);
+        }
+    }
+
+    if (myArray.length != 0) {
+        alert("Following textboxes are empty:\n" + myArray.join(", "));
+    } else if (!regEmail.test(email)) {
+        alert("Please enter a valid email address.");
+    } else if (!regPhone.test(phone)) {
+        alert("Please enter a valid phone number.");
+    } else {
+        alert("Form submitted successfully!");
+        document.RegForm.submit(); // Submit the form if everything is valid
+    }
+}
+</script>
+</head>
+<body>
+<h1 style="text-align:center;">Registration Form</h1> 
+<form name="RegForm" onsubmit="Validation(event)" method="post">
+    Name: <input type="text" name="Name"/> <br> 
+    Address: <input type="text" name="Address"/> <br>
+    Email Address: <input type="text" name="Email" /> <br>
+    Password: <input type="password" name="password"/> <br>
+    Gender: <input type="radio" name="gender" value="MALE">MALE
+    <input type="radio" name="gender" value="FEMALE"> FEMALE <br>
+    Telephone: <input type="number" name="Telephone"/> <br>
+    Select the course:<br>
+    <input type="checkbox" name="subl" value="BCA"> BCA <br>
+    <input type="checkbox" name="sub2" value="BA">BA <br>
+    <input type="checkbox" name="sub3" value="BCOM"> BCOM <br>
+    <input type="checkbox" name="sub4" value="BBA"> BBA <br>
+    <input type="submit" value="Submit">
+    <input type="reset" value="Clear" name="reset"/>
+</form>
+</body>
+</html>
