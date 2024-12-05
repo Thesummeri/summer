@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evaluation</title>
+</head>
+<body>
+    Expression: <input type="text" id="EXPR">
+    <input type="button" value="Evaluate" onclick="evaluation()"> <br>
+    Result: <input type="text" id="result">
+
+    <script type="text/javascript">
+    function evaluation() {
+        var Expression = document.getElementById("EXPR").value;
+        document.getElementById("result").value = eval(Expression);
+    }
+    </script>
+</body>
+</html>
