@@ -1,0 +1,57 @@
+<html>
+<head>
+<title> Employee Salary Details </title>
+<script type="text/javascript">
+function showSalary()
+{
+var ename=document.getElementById("ename").value;
+var eno=document.getElementById("eno").value;
+var basic=parseInt(document.getElementById("basic").value);
+var hra=basic*0.4;
+var da=basic*0.6;
+var gross=basic+hra+da;
+var pf=gross*0.13;
+var tax=gross*0.2;
+var deduction=pf+tax;
+var netsal=gross-deduction;
+document.writeln("<table border=5>");
+document.writeln("<tr><th>Employee Salary Breakup Detail </th></tr>");
+document.writeln("<tr><td>Employee Name </td><td>"+ename+"</td></tr>");
+document.writeln("<tr><td>Employee Number </td><td>"+eno+"</td></tr>");
+document.writeln("<tr><td>Basic </td><td>"+basic+"</td></tr>");
+document.writeln("<tr><td>HRA </td><td>"+hra+"</td></tr>");
+document.writeln("<tr><td>DA </td><td>"+da+"</td></tr>");
+document.writeln("<tr><td>Gross </td><td>"+gross+"</td></tr>");
+document.writeln("<tr><td>PF </td><td>"+pf+"</td></tr>");
+document.writeln("<tr><td>Tax </td><td>"+tax+"</td></tr>");
+document.writeln("<tr><td>Deduction</td><td>"+deduction+"</td></tr>");
+document.writeln("<tr><td>Net Salary</td>");
+document.writeln("<td>"+netsal+"</td></tr>");
+document.writeln("</table>");
+}
+</script>
+</head>
+<body>
+<table border=5>
+<tr><th> Employee Detail </th></tr>
+<tr>
+<td> Employee Name </td>
+<td><input type="text" id="ename"/></td>
+</tr>
+<tr>
+<td> Employee Number </td>
+<td><input type="text" id="eno"/></td>
+</tr>
+<tr>
+<td> Basic Salary </td>
+<td><input type="text" id="basic"/></td>
+</tr>
+<tr>
+<td>
+<input type="button" value="Show Salary Details" onclick="showSalary()"/>
+</tr>
+</td>
+</table>
+</form>
+</body>
+</html>
