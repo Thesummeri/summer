@@ -1,0 +1,74 @@
+<html>
+<head>
+<title> Student data example </title> <script type="text/javascript"> function showResults()
+{
+var name=document.getElementById("name").value; 
+var cls=document.getElementById("class").value; 
+var m1=parseInt(document.getElementById("s1").value); 
+var m2=parseInt(document.getElementById("s2").value);
+var m3=parseInt(document.getElementById("s3").value);
+var total=m1+m2+m3;
+var avg=total/3;
+var grade, result;
+if(avg>=60)
+{
+grade="A"; 
+result="First class";
+}
+else if(avg<60 && avg>=50)
+{
+grade="B"; 
+result="Second class";
+}
+else if(avg<50 && avg>=40)
+{
+grade="C"; 
+result="Third class";
+}
+else
+{
+grade="D"; 
+result="Fail";
+}
+document.write("<h2> Results</h2>");
+document.write("<b> Name: "+name+"</b><br/><br/>");
+document.write("<b> Class: "+cls+"</b><br/><br/>");
+document.write("<b> Total marks: "+total+"</b><br/><br/>");
+document.write("<b> Average: "+avg+"</b><br/><br/>");
+document.write("<b> Grade: "+grade+"</b><br/><br/>");
+document.write("<b> Result: "+result+"</b><br/><br/>");
+}
+</script>
+</head>
+<body>
+<form>
+<table border="5">
+<tr>
+<th> Student details </th>
+</tr>
+<tr>
+<td> Student name
+<td><input type="text" id="name"/></td>
+</tr>
+<tr>
+<td> Class
+<td><input type="text" id="class"/></td>
+</tr>
+<tr>
+<td> Marks 1
+<td><input type="text" id="s1"/></td>
+</tr>
+<tr>
+<td> Marks2
+<td><input type="text" id="s2"/></td>
+</tr>
+<tr>
+<td>Marks3
+<td><input type="text" id="s3"/></td>
+</tr>
+</table>
+<br/>
+<input type="button" value="View Results" onclick="showResults()"/>
+</form>
+</body>
+</html>
